@@ -1,12 +1,303 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Focus Battery</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Battery - Understand When You Can Focus</title>
+    <meta name="description" content="Focus Battery helps you understand when you can focus — and when you shouldn't even try. Track your energy and optimize your day.">
+    <meta name="theme-color" content="#0C0E12">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Focus Battery - Understand When You Can Focus">
+    <meta property="og:description" content="Focus Battery helps you understand when you can focus — and when you shouldn't even try.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://focusbattery.pro">
+    <meta property="og:image" content="https://focusbattery.pro/assets/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="apple-touch-icon" href="assets/logo.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #0C0E12;
+            color: #FFFFFF;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+            padding: 2rem 0;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+        }
+
+        .headline {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 500;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+
+        .subheadline {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+            max-width: 500px;
+            line-height: 1.5;
+        }
+
+        .app-store-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: #FFFFFF;
+            color: #000000;
+            padding: 0.875rem 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            width: fit-content;
+        }
+
+        .app-store-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.15);
+        }
+
+        .app-store-button svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .app-store-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.2;
+        }
+
+        .app-store-text .small {
+            font-size: 0.7rem;
+            font-weight: 400;
+        }
+
+        .app-store-text .large {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .phone-mockup {
+            max-width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: #FFFFFF;
+        }
+
+        .footer-links .separator {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+        }
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .hero {
+                gap: 3rem;
+            }
+
+            .logo {
+                width: 70px;
+                height: 70px;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            main {
+                padding: 1.5rem;
+                align-items: flex-start;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                text-align: center;
+                padding: 1rem 0;
+            }
+
+            .hero-content {
+                align-items: center;
+                order: 1;
+            }
+
+            .hero-image {
+                order: 2;
+            }
+
+            .logo {
+                width: 64px;
+                height: 64px;
+            }
+
+            .subheadline {
+                max-width: 100%;
+            }
+
+            .phone-mockup {
+                max-height: 50vh;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .footer-links .separator {
+                display: none;
+            }
+        }
+
+        /* Small mobile */
+        @media (max-width: 480px) {
+            main {
+                padding: 1rem;
+            }
+
+            .hero {
+                gap: 2rem;
+            }
+
+            .logo {
+                width: 56px;
+                height: 56px;
+                border-radius: 14px;
+            }
+
+            .app-store-button {
+                padding: 0.75rem 1.25rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Focus Battery</h1>
-  <p>Coming soon.</p>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <img src="assets/logo.png" alt="Focus Battery Logo" class="logo">
+
+                <h1 class="headline">Your energy is deciding your day.<br>Start listening to it.</h1>
+
+                <p class="subheadline">Focus Battery helps you understand when you can focus — and when you shouldn't even try.</p>
+
+                <a href="https://apps.apple.com/us/app/focus-battery/id6755793734" class="app-store-button" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
+                    </svg>
+                    <span class="app-store-text">
+                        <span class="small">Download on the</span>
+                        <span class="large">App Store</span>
+                    </span>
+                </a>
+            </div>
+
+            <div class="hero-image">
+                <img src="assets/phone-mockup.png" alt="Focus Battery App Screenshot" class="phone-mockup">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <nav class="footer-links">
+            <a href="terms.html">Terms of Service</a>
+            <span class="separator">•</span>
+            <a href="privacy.html">Privacy Policy</a>
+            <span class="separator">•</span>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+        <p class="copyright">&copy; 2025 Focus Battery. All rights reserved.</p>
+    </footer>
 </body>
 </html>
