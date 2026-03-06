@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://focusbattery.pro/sitemap.xml
