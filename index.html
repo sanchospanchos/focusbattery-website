@@ -34,6 +34,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
 
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/site.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
@@ -66,442 +70,671 @@
       }
     }
     </script>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #0C0E12;
-            color: #FFFFFF;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* ── Hero ─────────────────────────────────── */
-        main {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            padding: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .hero {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            width: 100%;
-            padding: 2rem 0;
-        }
-
-        .hero-content {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .logo {
-            width: 80px;
-            height: 80px;
-            border-radius: 18px;
-        }
-
-        .headline {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 500;
-            line-height: 1.15;
-            letter-spacing: -0.02em;
-        }
-
-        .subheadline {
-            font-size: clamp(1.1rem, 2vw, 1.35rem);
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: 400;
-            max-width: 500px;
-            line-height: 1.5;
-        }
-
-        .app-store-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            background: #FFFFFF;
-            color: #000000;
-            padding: 1rem 1.75rem;
-            border-radius: 14px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            width: fit-content;
-        }
-
-        .app-store-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.15);
-        }
-
-        .app-store-button svg {
-            width: 38px;
-            height: 38px;
-        }
-
-        .app-store-text {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            line-height: 1.15;
-        }
-
-        .app-store-text .small {
-            font-size: 0.65rem;
-            font-weight: 400;
-            color: #555555;
-            letter-spacing: 0.01em;
-        }
-
-        .app-store-text .large {
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
-
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .phone-mockup {
-            max-width: 100%;
-            height: auto;
-            max-height: 80vh;
-            object-fit: contain;
-            border-radius: 28px;
-        }
-
-        /* ── Animations ───────────────────────────── */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to   { opacity: 1; }
-        }
-
-        .logo        { animation: fadeInUp 0.8s ease-out forwards; }
-        .headline    { opacity: 0; animation: fadeInUp 0.8s ease-out 0.15s forwards; }
-        .subheadline { opacity: 0; animation: fadeInUp 0.8s ease-out 0.3s forwards; }
-        .app-store-button { opacity: 0; animation: fadeInUp 0.8s ease-out 0.45s forwards; }
-        .hero-image  { opacity: 0; animation: fadeIn 1s ease-out 0.3s forwards; }
-
-        /* ── How It Works ─────────────────────────── */
-        .how-it-works {
-            padding: 5rem 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .section-label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            background: linear-gradient(90deg, #F0616A, #E65DFE, #56B0FD, #1DEBD0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-            font-weight: 500;
-            letter-spacing: -0.02em;
-            margin-bottom: 3.5rem;
-            max-width: 520px;
-            line-height: 1.2;
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
-        .step {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .step-number {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .step h3 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-
-        .step p {
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.6);
-            line-height: 1.6;
-        }
-
-        /* ── Divider ──────────────────────────────── */
-        .section-divider {
-            height: 1px;
-            background: rgba(255, 255, 255, 0.08);
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        /* ── FAQ ──────────────────────────────────── */
-        .faq {
-            padding: 5rem 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .faq-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .faq-item {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 1.5rem;
-        }
-
-        .faq-item h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.6rem;
-            line-height: 1.4;
-        }
-
-        .faq-item p {
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.6);
-            line-height: 1.6;
-        }
-
-        /* ── Footer ───────────────────────────────── */
-        footer {
-            padding: 2rem;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s ease;
-        }
-
-        .footer-links a:hover { color: #FFFFFF; }
-
-        .footer-links .separator { color: rgba(255, 255, 255, 0.3); }
-
-        .copyright {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.85rem;
-        }
-
-        /* ── Tablet ───────────────────────────────── */
-        @media (max-width: 1024px) {
-            .hero { gap: 3rem; }
-            .logo { width: 70px; height: 70px; }
-            .steps { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        /* ── Mobile ───────────────────────────────── */
-        @media (max-width: 768px) {
-            main { padding: 1.5rem; align-items: flex-start; }
-
-            .hero {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-                text-align: center;
-                padding: 1rem 0;
-            }
-
-            .hero-content { align-items: center; order: 1; }
-            .hero-image   { order: 2; }
-            .logo         { width: 64px; height: 64px; }
-            .subheadline  { max-width: 100%; }
-            .phone-mockup { max-height: 50vh; }
-
-            .how-it-works, .faq { padding: 3.5rem 1.5rem; }
-            .section-title { margin-bottom: 2.5rem; }
-            .steps { grid-template-columns: 1fr; gap: 1.5rem; }
-            .faq-grid { grid-template-columns: 1fr; }
-
-            .footer-links { flex-direction: column; gap: 0.75rem; }
-            .footer-links .separator { display: none; }
-        }
-
-        /* ── Small mobile ─────────────────────────── */
-        @media (max-width: 480px) {
-            main { padding: 1rem; }
-            .hero { gap: 2rem; }
-            .logo { width: 56px; height: 56px; border-radius: 14px; }
-            .app-store-button { padding: 0.75rem 1.25rem; }
-            .how-it-works, .faq { padding: 3rem 1rem; }
-        }
-    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is Focus Battery?", "acceptedAnswer": { "@type": "Answer", "text": "Focus Battery is a focus tracking app for iPhone that estimates your daily mental energy based on your sleep, chronotype, and screen time — so you know exactly when to do deep work and when to rest." } },
+        { "@type": "Question", "name": "Is it useful for ADHD?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Many users with ADHD find it especially helpful because focus energy is harder to predict and manage. The app surfaces your best focus windows so you can plan around them rather than forcing productivity at the wrong times." } },
+        { "@type": "Question", "name": "Does it read my personal health data?", "acceptedAnswer": { "@type": "Answer", "text": "Focus Battery reads sleep data from Apple Health with your permission. It never writes to HealthKit, never stores your data on external servers, and never shares it with third parties. Everything stays on your device." } },
+        { "@type": "Question", "name": "Is Focus Battery free?", "acceptedAnswer": { "@type": "Answer", "text": "The core focus tracking features are free. An optional Focus Battery Pro subscription unlocks advanced insights and personalization. No ads, ever." } },
+        { "@type": "Question", "name": "Which devices are supported?", "acceptedAnswer": { "@type": "Answer", "text": "Focus Battery is available on iPhone and requires iOS 16 or later. Download it from the App Store." } },
+        { "@type": "Question", "name": "How accurate is the focus forecast?", "acceptedAnswer": { "@type": "Answer", "text": "The forecast improves as the app learns your patterns over time. It combines sleep quality, your chronotype, and usage data to build a model tailored to your personal energy rhythm." } }
+      ]
+    }
+    </script>
+    <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-    <main>
-        <section class="hero" aria-label="Hero">
-            <div class="hero-content">
-                <img src="assets/logo.png" alt="Focus Battery app icon" class="logo" width="80" height="80">
+    <a class="skip-link" href="#main">Skip to content</a>
 
-                <h1 class="headline">Your energy is deciding your day.<br>Start listening to it.</h1>
+    <!-- SVG icon set (lucide-style, same family as the app) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></symbol>
+            <symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+            <symbol id="i-battery" viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2"/><path d="M6 11v2"/><path d="M10 11v2"/></symbol>
+            <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+            <symbol id="i-pill" viewBox="0 0 24 24"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></symbol>
+            <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+            <symbol id="i-timer" viewBox="0 0 24 24"><line x1="10" x2="14" y1="2" y2="2"/><line x1="12" x2="15" y1="14" y2="11"/><circle cx="12" cy="14" r="8"/></symbol>
+            <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+            <symbol id="i-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
+            <symbol id="i-briefcase" viewBox="0 0 24 24"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></symbol>
+            <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></symbol>
+            <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+            <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+            <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+            <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/></symbol>
+            <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></symbol>
+            <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+            <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+            <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="m19 9-5 5-4-4-3 3"/></symbol>
+        </defs>
+    </svg>
 
-                <p class="subheadline">Focus Battery helps you understand when you can focus — and when you shouldn't even try.</p>
-
-                <a href="https://apps.apple.com/us/app/focus-battery/id6755793734"
-                   class="app-store-button"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Download Focus Battery on the App Store">
-                    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
-                    </svg>
-                    <span class="app-store-text">
-                        <span class="small">Download on the</span>
-                        <span class="large">App Store</span>
-                    </span>
+    <!-- 01 — Navigation -->
+    <header class="nav" id="nav">
+        <div class="wrap nav-inner">
+            <a href="#top" class="brand" aria-label="Focus Battery — back to top">
+                <img src="assets/logo.png" alt="" width="32" height="32">
+                <span>Focus Battery</span>
+            </a>
+            <nav aria-label="Main">
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#how-it-works">How it works</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#insights">Insights</a></li>
+                    <li><a href="#privacy">Privacy</a></li>
+                </ul>
+            </nav>
+            <div class="nav-cta">
+                <a class="btn-store sm" href="https://apps.apple.com/us/app/focus-battery/id6755793734" target="_blank" rel="noopener noreferrer" aria-label="Download Focus Battery on the App Store">
+                    <svg aria-hidden="true"><use href="#i-apple"/></svg>
+                    <span class="s-text">Download</span>
                 </a>
+                <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
             </div>
+        </div>
+    </header>
 
-            <div class="hero-image">
-                <img src="assets/phone-mockup.png"
-                     alt="Focus Battery app showing a daily focus forecast with energy levels throughout the day"
-                     class="phone-mockup"
-                     width="600"
-                     loading="eager">
+    <main id="main">
+
+        <!-- 02 — Hero -->
+        <section class="hero" id="top" aria-label="Introduction">
+            <div class="hero-aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="wrap hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow hero-in" style="--d:.05s">Your focus has a rhythm</p>
+                    <h1 class="h-display hero-in" style="--d:.15s">Know when your brain is <span class="grad-text">ready to focus.</span></h1>
+                    <p class="lead hero-in" style="--d:.3s">Focus Battery helps you find your strongest hours, plan demanding work around them, and recognize when it’s time to stop pushing and recharge.</p>
+                    <div class="hero-ctas hero-in" style="--d:.45s">
+                        <a class="btn-store" href="https://apps.apple.com/us/app/focus-battery/id6755793734" target="_blank" rel="noopener noreferrer" aria-label="Download Focus Battery on the App Store">
+                            <svg aria-hidden="true"><use href="#i-apple"/></svg>
+                            <span><span class="s-small">Download on the</span><span class="s-large">App Store</span></span>
+                        </a>
+                        <a class="btn-ghost" href="#how-it-works">See how it works <span class="arrow" aria-hidden="true">↓</span></a>
+                    </div>
+                    <p class="hero-support hero-in" style="--d:.6s">Built for deep work, studying, ADHD, and anyone curious about how their focus changes throughout the day.</p>
+                </div>
+
+                <div class="hero-visual" aria-label="Focus Battery app home screen showing a Moderate focus level, a daily focus forecast and a 63% Focus Battery">
+                    <div class="hero-stage" data-tilt>
+                        <!-- Phone. To use a video later: upload it to assets/ and uncomment the <source> line below. -->
+                        <div class="phone hero-phone" data-video-phone>
+                            <div class="phone-screen">
+                                <div class="app" aria-hidden="true">
+                                    <div class="app-status"><span>16:30</span><i><s style="height:.35em"></s><s style="height:.5em"></s><s style="height:.65em"></s><b></b></i></div>
+                                    <div class="app-top">
+                                        <span class="circle-btn"><svg><use href="#i-user"/></svg></span>
+                                        <div><div class="app-title">Home</div><div class="app-sub">Today</div></div>
+                                        <span class="circle-btn"><svg><use href="#i-gear"/></svg></span>
+                                    </div>
+                                    <div class="app-card">
+                                        <div class="app-label"><svg style="stroke:#8B5CF6"><use href="#i-zap"/></svg>Focus</div>
+                                        <div class="app-level">Moderate <span class="lvl-arrow">→</span></div>
+                                        <svg class="app-chart" data-chart="forecast" data-now="9.6" data-window="9,12" viewBox="0 0 280 118"></svg>
+                                        <div class="app-axis"><span>7 AM</span><span>10 AM</span><span>1 PM</span><span>4 PM</span><span>7 PM</span><span>12 AM</span></div>
+                                        <div class="app-note"><span class="dot"></span>In focus window till 7 PM</div>
+                                    </div>
+                                    <div class="app-card">
+                                        <div class="app-label"><svg style="stroke:#FB923C"><use href="#i-battery"/></svg>Focus Battery</div>
+                                        <div class="batt-row">
+                                            <span class="app-big"><span data-count="63">63</span><small>%</small></span>
+                                            <div class="batt-gauge"><div class="track"><div class="fill" style="--v:.63"></div></div><div class="ends"><span>Depleted</span><span>Fully charged</span></div></div>
+                                        </div>
+                                        <svg class="app-chart" data-chart="battery" data-now="0.56" data-end="63" viewBox="0 0 280 84"></svg>
+                                    </div>
+                                </div>
+                                <video class="screen-video" muted loop playsinline autoplay preload="metadata" aria-hidden="true">
+                                    <!-- <source src="assets/hero.mp4" type="video/mp4"> -->
+                                </video>
+                            </div>
+                        </div>
+
+                        <!-- Floating fragments of the interface -->
+                        <div class="frag frag-battery" data-depth="0.6" aria-hidden="true">
+                            <span class="frag-label"><svg><use href="#i-battery"/></svg>Focus Battery</span>
+                            <strong><span data-count="63">63</span>%</strong>
+                            <span class="mini-gauge"><i style="--v:.63"></i></span>
+                        </div>
+                        <div class="frag frag-level" data-depth="1" aria-hidden="true">
+                            <span class="frag-label"><svg><use href="#i-zap"/></svg>Focus</span>
+                            <strong>Moderate <em>→</em></strong>
+                        </div>
+                        <div class="frag frag-window" data-depth="0.8" aria-hidden="true">
+                            <span class="frag-label">Focus window</span>
+                            <strong>4:00 – 7:00 PM</strong>
+                            <span class="window-bar"><i></i></span>
+                        </div>
+                        <div class="frag frag-curve" data-depth="1.2" aria-hidden="true">
+                            <span class="frag-label">Daily focus curve</span>
+                            <svg viewBox="0 0 160 52" class="mini-curve"><defs><linearGradient id="g-mini" x1="0" x2="1"><stop offset="0" stop-color="#F0616A"/><stop offset=".45" stop-color="#E65DFE"/><stop offset=".75" stop-color="#56B0FD"/><stop offset="1" stop-color="#1DEBD0"/></linearGradient></defs><path class="draw" style="--len:220" d="M2 44 C 22 42, 30 14, 52 12 S 78 34, 94 32 S 120 8, 136 14 S 152 38, 158 40" fill="none" stroke="url(#g-mini)" stroke-width="3" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="frag frag-pill" data-depth="0.7" aria-hidden="true">
+                            <span class="dot"></span>In focus window till 7 PM
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <!-- Signals ticker -->
+        <div class="ticker" aria-hidden="true">
+            <div class="ticker-track">
+                <span>Sleep</span><i></i><span>Chronotype</span><i></i><span>Time of day</span><i></i><span>Medication timing</span><i></i><span>Reaction speed</span><i></i><span>Focus windows</span><i></i><span>Energy left</span><i></i><span>Daily reflections</span><i></i>
+                <span>Sleep</span><i></i><span>Chronotype</span><i></i><span>Time of day</span><i></i><span>Medication timing</span><i></i><span>Reaction speed</span><i></i><span>Focus windows</span><i></i><span>Energy left</span><i></i><span>Daily reflections</span><i></i>
+            </div>
+        </div>
+
+        <!-- 03 — Reframe the problem -->
+        <section class="reframe" id="rhythm" aria-labelledby="reframe-title">
+            <div class="reframe-sticky">
+                <div class="wrap reframe-head">
+                    <h2 class="h-section reveal" id="reframe-title">Stop treating every hour like it should feel the same.</h2>
+                    <div class="reframe-text reveal" style="--d:.1s">
+                        <p class="lead">Your ability to focus changes throughout the day. Some hours are naturally better for demanding work. Others are better for lighter tasks, breaks, or recovery.</p>
+                        <p class="lead">Focus Battery helps you see that pattern — so you can stop guessing when to push and when to recharge.</p>
+                    </div>
+                </div>
+                <div class="reframe-chart">
+                    <svg viewBox="0 0 1440 300" class="rhythm-svg" id="rhythm-svg" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="g-rhythm" x1="0" x2="1" y1="0" y2="0">
+                                <stop offset=".13" stop-color="#F0616A"/><stop offset=".44" stop-color="#E65DFE"/><stop offset=".75" stop-color="#56B0FD"/><stop offset=".96" stop-color="#1DEBD0"/>
+                            </linearGradient>
+                            <linearGradient id="g-rhythm-fill" x1="0" x2="0" y1="0" y2="1">
+                                <stop offset="0" stop-color="#E65DFE" stop-opacity=".28"/><stop offset="1" stop-color="#E65DFE" stop-opacity="0"/>
+                            </linearGradient>
+                            <clipPath id="clip-rhythm"><rect x="0" y="0" width="0" height="2000" id="clip-rhythm-rect"/></clipPath>
+                        </defs>
+                        <g class="rhythm-grid" id="rhythm-grid"></g>
+                        <path id="rhythm-fill" clip-path="url(#clip-rhythm)" fill="url(#g-rhythm-fill)" d=""/>
+                        <path id="rhythm-ghost" class="rhythm-ghost" d=""/>
+                        <path id="rhythm-line" class="rhythm-line" d=""/>
+                        <circle id="rhythm-dot" r="9" class="rhythm-dot"/>
+                        <circle id="rhythm-dot-halo" r="22" class="rhythm-dot-halo"/>
+                    </svg>
+                    <div class="rhythm-axis wrap" aria-hidden="true"><span>7 AM</span><span>10 AM</span><span>1 PM</span><span>4 PM</span><span>7 PM</span><span>10 PM</span></div>
+                </div>
+                <ol class="wrap phases" aria-label="How focus typically changes through the day">
+                    <li class="phase" data-at="0.12"><span class="phase-time">Morning</span><strong>Warming up</strong></li>
+                    <li class="phase" data-at="0.34"><span class="phase-time">Peak window</span><strong>Best time for deep work</strong></li>
+                    <li class="phase" data-at="0.58"><span class="phase-time">Afternoon dip</span><strong>Switch to lighter work</strong></li>
+                    <li class="phase" data-at="0.86"><span class="phase-time">Recovery</span><strong>Stop forcing it</strong></li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- How it works (kept from the original site, restyled) -->
+        <section class="section how" id="how-it-works" aria-labelledby="how-title">
+            <div class="wrap">
+                <div class="section-head">
+                    <p class="eyebrow reveal">How it works</p>
+                    <h2 class="h-section reveal" id="how-title">Your focus, explained in seconds.</h2>
+                </div>
+                <ol class="steps">
+                    <li class="step reveal" style="--d:0s">
+                        <span class="step-num">01</span>
+                        <span class="step-icon"><svg><use href="#i-heart"/></svg></span>
+                        <h3>Connect Apple Health</h3>
+                        <p>Grant access to your sleep data. Focus Battery reads sleep duration and stages — nothing else.</p>
+                    </li>
+                    <li class="step reveal" style="--d:.08s">
+                        <span class="step-num">02</span>
+                        <span class="step-icon"><svg><use href="#i-sun"/></svg></span>
+                        <h3>Set your chronotype</h3>
+                        <p>Tell the app whether you're an early bird or a night owl. Your body clock shapes your focus windows.</p>
+                    </li>
+                    <li class="step reveal" style="--d:.16s">
+                        <span class="step-num">03</span>
+                        <span class="step-icon"><svg><use href="#i-chart"/></svg></span>
+                        <h3>Get your daily forecast</h3>
+                        <p>Every morning, see a personalized focus energy curve for the day — peak hours and low-energy dips included.</p>
+                    </li>
+                    <li class="step reveal" style="--d:.24s">
+                        <span class="step-num">04</span>
+                        <span class="step-icon"><svg><use href="#i-zap"/></svg></span>
+                        <h3>Work with your energy</h3>
+                        <p>Schedule deep work during peak focus windows. Save light tasks for low-energy periods. Stop fighting your biology.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 04 — The core product -->
+        <section data-nav-light class="section light sheet core" id="features" aria-labelledby="core-title">
+            <div class="wrap">
+                <div class="section-head">
+                    <p class="eyebrow reveal">The core product</p>
+                    <h2 class="h-section reveal" id="core-title">Your day, at a glance.</h2>
+                    <p class="lead reveal">Focus Battery turns your daily rhythm into three simple signals.</p>
+                </div>
+
+                <div class="core-grid">
+                    <div class="core-stage">
+                        <div class="core-sticky">
+                            <div class="phone core-phone" data-state="0" aria-hidden="true">
+                                <div class="phone-screen">
+                                    <div class="app core-app">
+                                        <div class="app-status"><span>17:05</span><i><s style="height:.35em"></s><s style="height:.5em"></s><s style="height:.65em"></s><b></b></i></div>
+                                        <div class="core-pages">
+                                            <!-- Page 1: Focus Forecast -->
+                                            <div class="core-page page-forecast">
+                                                <div class="app-top"><span></span><div><div class="app-title">Focus Forecast</div><div class="app-sub">Today</div></div><span></span></div>
+                                                <div class="app-card tall">
+                                                    <div class="app-label"><svg style="stroke:#8B5CF6"><use href="#i-zap"/></svg>Focus</div>
+                                                    <div class="app-level core-level">Moderate <span class="lvl-arrow">→</span></div>
+                                                    <div class="window-chip"><span>Peak window</span><strong>4:00–7:00 PM</strong></div>
+                                                    <svg class="app-chart" data-chart="forecast" data-now="10" data-window="9,12" viewBox="0 0 280 230"></svg>
+                                                    <div class="app-axis"><span>7 AM</span><span>10 AM</span><span>1 PM</span><span>4 PM</span><span>7 PM</span><span>12 AM</span></div>
+                                                </div>
+                                                <div class="app-card mini-row">
+                                                    <div><span class="k">Focus windows</span><span class="v">2 today</span></div>
+                                                    <div><span class="k">Next peak</span><span class="v">4:00 PM</span></div>
+                                                </div>
+                                            </div>
+                                            <!-- Page 2: Focus Battery -->
+                                            <div class="core-page page-battery">
+                                                <div class="app-top"><span></span><div><div class="app-title">Focus Battery</div><div class="app-sub">Today</div></div><span></span></div>
+                                                <div class="app-card tall batt-card">
+                                                    <div class="batt-ring">
+                                                        <svg viewBox="0 0 120 120">
+                                                            <defs><linearGradient id="g-ring" x1="0" x2="1" y1="1" y2="0"><stop offset="0" stop-color="#FF6B35"/><stop offset=".35" stop-color="#FF4D9E"/><stop offset=".65" stop-color="#B84DFF"/><stop offset="1" stop-color="#4DBAFF"/></linearGradient></defs>
+                                                            <circle cx="60" cy="60" r="50" class="ring-track"/>
+                                                            <circle cx="60" cy="60" r="50" class="ring-fill" pathLength="100" style="--v:48"/>
+                                                        </svg>
+                                                        <div class="batt-ring-label"><span class="app-big"><span data-count="48">48</span><small>%</small></span><span class="app-sub">remaining</span></div>
+                                                    </div>
+                                                    <svg class="app-chart" data-chart="battery" data-now="0.7" data-end="48" viewBox="0 0 280 110"></svg>
+                                                    <div class="app-axis"><span>7 AM</span><span>12 PM</span><span>5 PM</span><span>11 PM</span></div>
+                                                    <div class="app-note"><span class="dot" style="background:#FB923C"></span>Lighter tasks recommended after 7 PM</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="page-dots"><i></i><i></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="core-steps">
+                        <article class="core-step" data-step="0">
+                            <p class="core-q">How focused can I be right now?</p>
+                            <p class="core-a"><span class="core-a-icon" style="--c:#8B5CF6"><svg><use href="#i-zap"/></svg></span>Moderate</p>
+                            <p class="body">See your predicted focus level throughout the day and identify your strongest windows.</p>
+                        </article>
+                        <article class="core-step" data-step="1">
+                            <p class="core-q">When should I do demanding work?</p>
+                            <p class="core-a"><span class="core-a-icon" style="--c:#4CBAFF"><svg><use href="#i-timer"/></svg></span>4:00–7:00 PM</p>
+                            <p class="body">Use your predicted peaks for deep work, studying, creative work, or anything that needs sustained attention.</p>
+                        </article>
+                        <article class="core-step" data-step="2">
+                            <p class="core-q">How much do I have left?</p>
+                            <p class="core-a"><span class="core-a-icon" style="--c:#FB923C"><svg><use href="#i-battery"/></svg></span>48% <small>Focus Battery</small></p>
+                            <p class="body">See your estimated remaining mental energy — and recognize when continuing to push may no longer be worth it.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05 — Two signals -->
+        <section class="section signals" aria-labelledby="signals-title">
+            <div class="wrap">
+                <div class="section-head center">
+                    <p class="eyebrow reveal">The key difference</p>
+                    <h2 class="h-section reveal" id="signals-title">Two signals.<br>One better decision.</h2>
+                </div>
+
+                <div class="signal-cards">
+                    <article class="signal-card reveal">
+                        <div class="signal-top">
+                            <span class="tag" style="--c:#4CBAFF"><svg><use href="#i-zap"/></svg>Focus Forecast</span>
+                            <svg class="signal-viz" viewBox="0 0 220 70" data-chart="mini-forecast" aria-hidden="true"></svg>
+                        </div>
+                        <h3 class="h-card">When can I focus best?</h3>
+                        <p class="body">Your forecast maps how your ability to focus may change throughout the day based on factors such as your sleep, chronotype, and routine.</p>
+                        <p class="signal-use">Use it to decide <strong>when</strong> to tackle demanding work.</p>
+                    </article>
+                    <article class="signal-card reveal" style="--d:.1s">
+                        <div class="signal-top">
+                            <span class="tag" style="--c:#FB923C"><svg><use href="#i-battery"/></svg>Focus Battery</span>
+                            <div class="signal-battery" aria-hidden="true"><div class="cell"><i></i></div><span><span data-count="48">48</span>%</span></div>
+                        </div>
+                        <h3 class="h-card">How much mental energy do I have left?</h3>
+                        <p class="body">Your battery gives you a simple estimate of how much focus capacity remains as the day progresses.</p>
+                        <p class="signal-use">Use it to decide <strong>how much longer</strong> you should keep pushing.</p>
+                    </article>
+                </div>
+
+                <div class="dual reveal">
+                    <div class="dual-copy">
+                        <p class="dual-kicker">Peak focus doesn’t always mean unlimited energy.</p>
+                        <p class="lead">You can be in a good focus window and still be running low. That distinction is what makes Focus Battery useful.</p>
+                        <ul class="dual-legend" aria-hidden="true">
+                            <li><i style="background:#4CBAFF"></i>Focus Forecast</li>
+                            <li><i style="background:linear-gradient(90deg,#FF6B35,#FF4D9E,#B84DFF)"></i>Focus Battery</li>
+                        </ul>
+                    </div>
+                    <div class="dual-chart">
+                        <svg viewBox="0 0 640 300" aria-label="Chart: the focus forecast peaks between 4 and 7 PM while the focus battery keeps draining to around 35%">
+                            <defs>
+                                <linearGradient id="g-batt" x1="0" x2="1"><stop offset="0" stop-color="#FF6B35"/><stop offset=".4" stop-color="#FF4D9E"/><stop offset=".75" stop-color="#B84DFF"/><stop offset="1" stop-color="#7C6CFF"/></linearGradient>
+                                <linearGradient id="g-batt-fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#B84DFF" stop-opacity=".22"/><stop offset="1" stop-color="#B84DFF" stop-opacity="0"/></linearGradient>
+                            </defs>
+                            <g class="dual-grid"><line x1="40" x2="620" y1="60" y2="60"/><line x1="40" x2="620" y1="140" y2="140"/><line x1="40" x2="620" y1="220" y2="220"/></g>
+                            <rect class="dual-window" x="388" y="22" width="116" height="230" rx="14"/>
+                            <text class="dual-window-label" x="446" y="44" text-anchor="middle">Peak window</text>
+                            <g data-chart="dual"></g>
+                            <g class="dual-axis"><text x="40" y="285">7 AM</text><text x="156" y="285" text-anchor="middle">10 AM</text><text x="272" y="285" text-anchor="middle">1 PM</text><text x="388" y="285" text-anchor="middle">4 PM</text><text x="600" y="285" text-anchor="end">10 PM</text></g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06 — What shapes your focus -->
+        <section class="section shapes" aria-labelledby="shapes-title">
+            <div class="shapes-bg" aria-hidden="true"></div>
+            <div class="wrap shapes-grid">
+                <div class="shapes-copy">
+                    <div class="section-head">
+                        <p class="eyebrow reveal">What shapes your focus</p>
+                        <h2 class="h-section reveal" id="shapes-title">Your focus doesn’t happen in isolation.</h2>
+                        <p class="lead reveal">Sleep. Daily rhythm. Medication. Your current state. Focus Battery brings those signals together so you can start noticing what changes the way you work.</p>
+                    </div>
+                    <ul class="shape-list">
+                        <li class="shape-item reveal" data-panel="sleep">
+                            <span class="shape-icon" style="--c:#60A5FA"><svg><use href="#i-moon"/></svg></span>
+                            <div><h3>Sleep</h3><p>See how your sleep compares with your estimated sleep need and how your days differ when you recover better.</p></div>
+                        </li>
+                        <li class="shape-item reveal" data-panel="med" style="--d:.08s">
+                            <span class="shape-icon" style="--c:#14B8A6"><svg><use href="#i-pill"/></svg></span>
+                            <div><h3>Medication</h3><p>If you take ADHD medication, log its timing and compare it with your daily focus pattern.</p></div>
+                        </li>
+                        <li class="shape-item reveal" data-panel="test" style="--d:.16s">
+                            <span class="shape-icon" style="--c:#16F07F"><svg><use href="#i-target"/></svg></span>
+                            <div><h3>Focus Tests</h3><p>Use short cognitive tests to check reaction speed, accuracy, and impulse control — giving you another view of how sharp you feel right now.</p></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="collage" aria-hidden="true">
+                    <!-- Medication: boosted focus chart -->
+                    <div class="panel panel-med" data-panel-id="med" data-depth="0.5">
+                        <div class="app">
+                            <div class="app-label"><svg style="stroke:#8B5CF6"><use href="#i-zap"/></svg>Focus</div>
+                            <div class="app-level">Boosted <span class="lvl-arrow" style="color:#14B8A6">↑</span></div>
+                            <svg class="app-chart" data-chart="boost" viewBox="0 0 280 120"></svg>
+                            <div class="app-axis"><span>7 AM</span><span>10 AM</span><span>1 PM</span><span>4 PM</span><span>7 PM</span></div>
+                            <div class="effect-zone"><span class="ez-label">💊 Methylphenidate · 10 mg</span><span class="ez-track"><i></i></span><span class="ez-time">8:30 AM – 12:30 PM</span></div>
+                        </div>
+                    </div>
+                    <!-- Focus test: running → results -->
+                    <div class="panel panel-test" data-panel-id="test" data-depth="1.1">
+                        <div class="app test-app">
+                            <div class="test-run">
+                                <div class="test-hud"><span>Score <b data-test-score>12</b></span><span class="test-rt"><b data-test-rt>286</b> ms</span></div>
+                                <div class="test-field"><span class="test-circle"></span></div>
+                                <div class="test-progress"><i></i></div>
+                            </div>
+                            <div class="test-results">
+                                <span class="app-sub">Quick Focus Test</span>
+                                <div class="res-score"><span>Final score</span><strong>18</strong></div>
+                                <div class="res-grid">
+                                    <div><span>Reaction</span><strong>286 ms</strong><em style="color:#16F07F">Good</em></div>
+                                    <div><span>Accuracy</span><strong>94%</strong><em style="color:#16F07F">Sharp</em></div>
+                                    <div><span>Impulse</span><strong>1 tap</strong><em style="color:#16F07F">Excellent</em></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sleep: journal sleep chart -->
+                    <div class="panel panel-sleep" data-panel-id="sleep" data-depth="0.8">
+                        <div class="app">
+                            <div class="app-label"><svg style="stroke:#60A5FA"><use href="#i-moon"/></svg>Sleep</div>
+                            <div class="sleep-head"><span class="app-big" style="font-size:2em">7h 12m</span><span class="app-sub">avg · need 7h 45m</span></div>
+                            <div class="sleep-bars">
+                                <span class="need-line"><em>Need</em></span>
+                                <i style="--h:.78"></i><i style="--h:.62"></i><i style="--h:.86"></i><i style="--h:.94" class="good"></i><i style="--h:.70"></i><i style="--h:.98" class="good"></i><i style="--h:.82"></i>
+                            </div>
+                            <div class="app-axis"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+                        </div>
+                    </div>
+                    <div class="collage-link l1"></div>
+                    <div class="collage-link l2"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 07 — From prediction to action -->
+        <section class="section session" aria-labelledby="session-title">
+            <div class="wrap session-grid">
+                <div class="session-visual">
+                    <div class="session-glow" aria-hidden="true"></div>
+                    <div class="phone session-phone" aria-hidden="true">
+                        <div class="phone-screen">
+                            <div class="app timer-app">
+                                <div class="app-status"><span>16:12</span><i><s style="height:.35em"></s><s style="height:.5em"></s><s style="height:.65em"></s><b></b></i></div>
+                                <div class="app-top"><span></span><div class="app-title">Focus</div><span></span></div>
+                                <div class="timer-ring">
+                                    <svg viewBox="0 0 200 200">
+                                        <defs>
+                                            <linearGradient id="g-timer" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#A78BFA"/><stop offset="1" stop-color="#7C9EF5"/></linearGradient>
+                                            <radialGradient id="g-timer-glow"><stop offset="0" stop-color="#8B5CF6" stop-opacity=".35"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/></radialGradient>
+                                        </defs>
+                                        <circle cx="100" cy="100" r="96" fill="url(#g-timer-glow)"/>
+                                        <circle cx="100" cy="100" r="84" class="tr-track"/>
+                                        <circle cx="100" cy="100" r="84" class="tr-fill" pathLength="100" id="timer-fill"/>
+                                    </svg>
+                                    <div class="timer-label"><span class="timer-digits" id="timer-digits">25:00</span><span class="app-sub">remaining</span></div>
+                                </div>
+                                <div class="timer-state"><span class="dot"></span>In focus window · till 7 PM</div>
+                                <div class="timer-task">Working on <b>Thesis chapter 3</b></div>
+                                <div class="timer-music"><svg><use href="#i-music"/></svg><span>Celestial Focus Drift</span><span class="wave"><i></i><i></i><i></i><i></i><i></i></span></div>
+                                <div class="timer-btns"><span class="tb-primary">Pause</span><span class="tb-ghost">Hold to End Session</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="session-copy">
+                    <p class="eyebrow reveal">From prediction to action</p>
+                    <h2 class="h-section reveal" id="session-title">When the window opens, use it.</h2>
+                    <p class="lead reveal">Knowing your best hours is only useful if you actually protect them. Start a Focus Session during a strong focus window and give the task your full attention.</p>
+                    <ul class="session-list">
+                        <li class="reveal"><span class="sl-icon"><svg><use href="#i-timer"/></svg></span>Built-in timer.</li>
+                        <li class="reveal" style="--d:.06s"><span class="sl-icon"><svg><use href="#i-music"/></svg></span>Focus music.</li>
+                        <li class="reveal" style="--d:.12s"><span class="sl-icon"><svg><use href="#i-sparkles"/></svg></span>No complicated productivity system.</li>
+                    </ul>
+                    <p class="body reveal">Just a clear block of time for the work that matters.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 08 — Learn your patterns -->
+        <section data-nav-light class="section light sheet patterns" id="insights" aria-labelledby="patterns-title">
+            <div class="wrap patterns-grid">
+                <div class="patterns-copy">
+                    <p class="eyebrow reveal">Learn your patterns</p>
+                    <h2 class="h-section reveal" id="patterns-title">One day is useful. Patterns are better.</h2>
+                    <p class="lead reveal">Your Journal turns daily signals into longer-term trends.</p>
+                    <p class="body reveal">Compare your Focus Battery across days, weeks, and months. See how much you slept. Notice which days felt stronger — and start understanding what your best routines have in common.</p>
+                    <div class="seg reveal" role="tablist" aria-label="Journal range">
+                        <button role="tab" type="button" data-range="day" aria-selected="false">Day</button>
+                        <button role="tab" type="button" data-range="week" aria-selected="true">Week</button>
+                        <button role="tab" type="button" data-range="month" aria-selected="false">Month</button>
+                        <span class="seg-thumb" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="patterns-visual">
+                    <div class="phone journal-phone" data-range="week" aria-hidden="true">
+                        <div class="phone-screen">
+                            <div class="app journal-app">
+                                <div class="app-status"><span>21:40</span><i><s style="height:.35em"></s><s style="height:.5em"></s><s style="height:.65em"></s><b></b></i></div>
+                                <div class="app-top"><span></span><div class="app-title">Journal</div><span></span></div>
+                                <div class="j-seg"><span data-r="day">Day</span><span data-r="week">Week</span><span data-r="month">Month</span><i class="j-thumb"></i></div>
+                                <div class="app-card j-card">
+                                    <div class="app-label"><svg style="stroke:#FB923C"><use href="#i-battery"/></svg>Focus Battery</div>
+                                    <div class="j-stat"><span class="app-big" style="font-size:2em" data-j-avg>61%</span><span class="app-sub" data-j-caption>avg this week</span></div>
+                                    <div class="j-chart">
+                                        <svg class="j-day" viewBox="0 0 280 120" data-chart="journal-day"></svg>
+                                        <div class="j-bars" data-bars></div>
+                                    </div>
+                                    <div class="app-axis j-axis" data-j-axis><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+                                </div>
+                                <div class="app-card j-sleep">
+                                    <div class="app-label"><svg style="stroke:#60A5FA"><use href="#i-moon"/></svg>Sleep vs need</div>
+                                    <div class="sleep-bars"><span class="need-line"></span><i style="--h:.78"></i><i style="--h:.62"></i><i style="--h:.86"></i><i style="--h:.96" class="good"></i><i style="--h:.70"></i><i style="--h:.98" class="good"></i><i style="--h:.82"></i></div>
+                                </div>
+                                <div class="app-card j-mini">
+                                    <div><span class="k" data-j-k1>Avg sleep</span><span class="v" data-j-v1>7h 12m</span></div>
+                                    <div><span class="k" data-j-k2>Best day</span><span class="v" data-j-v2>Thursday</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 09 — Audience -->
+        <section class="section audience" aria-labelledby="audience-title">
+            <div class="wrap">
+                <div class="section-head">
+                    <p class="eyebrow reveal">Who it’s for</p>
+                    <h2 class="h-section reveal" id="audience-title">Built for minds that do demanding work.</h2>
+                </div>
+                <div class="aud-grid">
+                    <article class="aud-card reveal" style="--c1:#56B0FD;--c2:#1DEBD0">
+                        <span class="aud-icon"><svg><use href="#i-cap"/></svg></span>
+                        <h3>Students</h3>
+                        <p>Find your best hours for studying instead of forcing another unproductive late-night session.</p>
+                    </article>
+                    <article class="aud-card reveal" style="--d:.08s;--c1:#E65DFE;--c2:#56B0FD">
+                        <span class="aud-icon"><svg><use href="#i-briefcase"/></svg></span>
+                        <h3>Knowledge workers</h3>
+                        <p>Protect your strongest cognitive hours for deep work instead of spending them on meetings and email.</p>
+                    </article>
+                    <article class="aud-card reveal" style="--d:.16s;--c1:#F0616A;--c2:#E65DFE">
+                        <span class="aud-icon"><svg><use href="#i-activity"/></svg></span>
+                        <h3>People with ADHD</h3>
+                        <p>Make changing focus levels more visible and compare your daily rhythm with factors such as sleep and medication timing.</p>
+                    </article>
+                    <article class="aud-card reveal" style="--d:.24s;--c1:#1DEBD0;--c2:#F0616A">
+                        <span class="aud-icon"><svg><use href="#i-sparkles"/></svg></span>
+                        <h3>The curious</h3>
+                        <p>You don’t need a productivity problem to want to understand how your mind works.</p>
+                    </article>
+                </div>
+                <p class="aud-statement reveal">Focus Battery isn’t about squeezing more work out of every hour. <span class="grad-text">It’s about learning which hours are actually worth using.</span></p>
+            </div>
+        </section>
+
+        <!-- 10 — Privacy -->
+        <section data-nav-light class="section light sheet privacy" id="privacy" aria-labelledby="privacy-title">
+            <div class="wrap privacy-grid">
+                <div class="privacy-visual reveal" aria-hidden="true">
+                    <div class="orbit o1"><i></i></div>
+                    <div class="orbit o2"><i></i></div>
+                    <div class="orbit o3"><i></i></div>
+                    <div class="privacy-core"><svg><use href="#i-shield"/></svg></div>
+                </div>
+                <div class="privacy-copy">
+                    <p class="eyebrow reveal">Privacy</p>
+                    <h2 class="h-section reveal" id="privacy-title">Your brain is personal. Your data should be too.</h2>
+                    <p class="lead reveal">Focus Battery uses Apple Health permissions only when you choose to provide them. Sensitive health inputs are used to personalize your experience, not to build an advertising profile.</p>
+                    <ul class="privacy-list">
+                        <li class="reveal"><span><svg><use href="#i-check"/></svg></span>No ads.</li>
+                        <li class="reveal" style="--d:.06s"><span><svg><use href="#i-check"/></svg></span>No selling your health data.</li>
+                        <li class="reveal" style="--d:.12s"><span><svg><use href="#i-check"/></svg></span>You control your permissions.</li>
+                    </ul>
+                    <a class="text-link reveal" href="privacy.html">Read the Privacy Policy <span aria-hidden="true">→</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ (kept from the original site, restyled) -->
+        <section class="section faq" id="faq" aria-labelledby="faq-title">
+            <div class="wrap faq-grid">
+                <div class="section-head">
+                    <p class="eyebrow reveal">FAQ</p>
+                    <h2 class="h-section reveal" id="faq-title">Common questions.</h2>
+                    <p class="body reveal">Something else on your mind? <a href="contact.html">Get in touch</a>.</p>
+                </div>
+                <div class="faq-list">
+                    <details class="faq-item reveal" open>
+                        <summary><h3>What is Focus Battery?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
+                        <p>Focus Battery is a focus tracking app for iPhone that estimates your daily mental energy based on your sleep, chronotype, and screen time — so you know exactly when to do deep work and when to rest.</p>
+                    </details>
+                    <details class="faq-item reveal">
+                        <summary><h3>Is it useful for ADHD?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
+                        <p>Yes. Many users with ADHD find it especially helpful because focus energy is harder to predict and manage. The app surfaces your best focus windows so you can plan around them rather than forcing productivity at the wrong times.</p>
+                    </details>
+                    <details class="faq-item reveal">
+                        <summary><h3>Does it read my personal health data?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
+                        <p>Focus Battery reads sleep data from Apple Health with your permission. It never writes to HealthKit, never stores your data on external servers, and never shares it with third parties. Everything stays on your device.</p>
+                    </details>
+                    <details class="faq-item reveal">
+                        <summary><h3>Is Focus Battery free?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
+                        <p>The core focus tracking features are free. An optional Focus Battery Pro subscription unlocks advanced insights and personalization. No ads, ever.</p>
+                    </details>
+                    <details class="faq-item reveal">
+                        <summary><h3>Which devices are supported?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
+                        <p>Focus Battery is available on iPhone and requires iOS 16 or later. Download it from the App Store.</p>
+                    </details>
+                    <details class="faq-item reveal">
+                        <summary><h3>How accurate is the focus forecast?</h3><span class="faq-plus" aria-hidden="true"></span></summary>
+                        <p>The forecast improves as the app learns your patterns over time. It combines sleep quality, your chronotype, and usage data to build a model tailored to your personal energy rhythm.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11 — Final CTA -->
+        <section class="cta" aria-labelledby="cta-title">
+            <div class="cta-card" data-nav-light>
+                <svg class="cta-wave" viewBox="0 0 1200 300" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M0 220 C 150 210, 220 90, 360 80 S 560 200, 700 190 S 900 40, 1040 60 S 1160 180, 1200 190" />
+                    <path d="M0 250 C 160 240, 260 150, 400 140 S 600 240, 740 230 S 940 110, 1080 120 S 1170 210, 1200 215" />
+                </svg>
+                <div class="wrap cta-inner">
+                    <h2 class="cta-title reveal" id="cta-title">Work with your brain.<br>Not against it.</h2>
+                    <p class="cta-sub reveal">Find your peaks. Protect your energy. Learn your rhythm.</p>
+                    <a class="btn-store dark reveal" href="https://apps.apple.com/us/app/focus-battery/id6755793734" target="_blank" rel="noopener noreferrer" aria-label="Download Focus Battery on the App Store">
+                        <svg aria-hidden="true"><use href="#i-apple"/></svg>
+                        <span><span class="s-small">Download Focus Battery on the</span><span class="s-large">App Store</span></span>
+                    </a>
+                    <p class="cta-note reveal">Free to download. Focus Battery Pro is available as an in-app subscription.</p>
+                </div>
+            </div>
+            <p class="wrap brand-line reveal">Your energy is deciding your day.<br><span>Start listening to it.</span></p>
         </section>
     </main>
 
-    <!-- How It Works -->
-    <section class="how-it-works" aria-label="How Focus Battery works">
-        <p class="section-label">How it works</p>
-        <h2 class="section-title">Your focus, explained in seconds.</h2>
-        <div class="steps">
-            <div class="step">
-                <div class="step-number" aria-hidden="true">1</div>
-                <h3>Connect Apple Health</h3>
-                <p>Grant access to your sleep data. Focus Battery reads sleep duration and stages — nothing else.</p>
+    <!-- 12 — Footer -->
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footer-top">
+                <a href="#top" class="brand"><img src="assets/logo.png" alt="" width="32" height="32"><span>Focus Battery</span></a>
+                <nav aria-label="Footer">
+                    <ul class="footer-links">
+                        <li><a href="https://apps.apple.com/us/app/focus-battery/id6755793734" target="_blank" rel="noopener noreferrer">App Store</a></li>
+                        <li><a href="privacy.html">Privacy</a></li>
+                        <li><a href="terms.html">Terms</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
             </div>
-            <div class="step">
-                <div class="step-number" aria-hidden="true">2</div>
-                <h3>Set your chronotype</h3>
-                <p>Tell the app whether you're an early bird or a night owl. Your body clock shapes your focus windows.</p>
-            </div>
-            <div class="step">
-                <div class="step-number" aria-hidden="true">3</div>
-                <h3>Get your daily forecast</h3>
-                <p>Every morning, see a personalized focus energy curve for the day — peak hours and low-energy dips included.</p>
-            </div>
-            <div class="step">
-                <div class="step-number" aria-hidden="true">4</div>
-                <h3>Work with your energy</h3>
-                <p>Schedule deep work during peak focus windows. Save light tasks for low-energy periods. Stop fighting your biology.</p>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Focus Battery</span>
+                <span>Designed &amp; built by Alex Demchenko</span>
             </div>
         </div>
-    </section>
-
-    <div class="section-divider" role="separator"></div>
-
-    <!-- FAQ -->
-    <section class="faq" aria-label="Frequently asked questions">
-        <p class="section-label">FAQ</p>
-        <h2 class="section-title">Common questions.</h2>
-        <div class="faq-grid">
-            <div class="faq-item">
-                <h3>What is Focus Battery?</h3>
-                <p>Focus Battery is a focus tracking app for iPhone that estimates your daily mental energy based on your sleep, chronotype, and screen time — so you know exactly when to do deep work and when to rest.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Is it useful for ADHD?</h3>
-                <p>Yes. Many users with ADHD find it especially helpful because focus energy is harder to predict and manage. The app surfaces your best focus windows so you can plan around them rather than forcing productivity at the wrong times.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Does it read my personal health data?</h3>
-                <p>Focus Battery reads sleep data from Apple Health with your permission. It never writes to HealthKit, never stores your data on external servers, and never shares it with third parties. Everything stays on your device.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Is Focus Battery free?</h3>
-                <p>The core focus tracking features are free. An optional Focus Battery Pro subscription unlocks advanced insights and personalization. No ads, ever.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Which devices are supported?</h3>
-                <p>Focus Battery is available on iPhone and requires iOS 16 or later. Download it from the App Store.</p>
-            </div>
-            <div class="faq-item">
-                <h3>How accurate is the focus forecast?</h3>
-                <p>The forecast improves as the app learns your patterns over time. It combines sleep quality, your chronotype, and usage data to build a model tailored to your personal energy rhythm.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <nav class="footer-links" aria-label="Footer navigation">
-            <a href="terms.html">Terms of Service</a>
-            <span class="separator" aria-hidden="true">•</span>
-            <a href="privacy.html">Privacy Policy</a>
-            <span class="separator" aria-hidden="true">•</span>
-            <a href="contact.html">Contact Us</a>
-        </nav>
-        <p class="copyright">&copy; 2025 Focus Battery. All rights reserved.</p>
     </footer>
+
+    <script src="assets/js/site.js" defer></script>
 </body>
 </html>
