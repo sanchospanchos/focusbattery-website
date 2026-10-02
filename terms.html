@@ -6,6 +6,7 @@
     <title>Terms of Use - Focus Battery</title>
     <meta name="description" content="Terms of Use for Focus Battery app.">
     <meta name="theme-color" content="#0C0E12">
+    <link rel="canonical" href="https://focusbattery.pro/terms.html">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/logo.png">
@@ -16,236 +17,57 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #0C0E12;
-            color: #FFFFFF;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        header {
-            padding: 1.5rem 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .logo-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            color: #FFFFFF;
-        }
-
-        .logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-        }
-
-        .logo-text {
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        main {
-            flex: 1;
-            padding: 3rem 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .last-updated {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-        }
-
-        .intro {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 1.05rem;
-            margin-bottom: 1rem;
-        }
-
-        .intro strong {
-            color: #FFFFFF;
-        }
-
-        .section-divider {
-            height: 1px;
-            background: rgba(255, 255, 255, 0.1);
-            margin: 2.5rem 0;
-        }
-
-        .content h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1.25rem;
-            color: #FFFFFF;
-        }
-
-        .content h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            color: #FFFFFF;
-        }
-
-        .content p {
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
-
-        .content strong {
-            color: #FFFFFF;
-            font-weight: 600;
-        }
-
-        .content ul {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        .content li {
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .content a {
-            color: #56B0FD;
-            text-decoration: none;
-        }
-
-        .content a:hover {
-            text-decoration: underline;
-        }
-
-        .highlight-box {
-            background: rgba(255, 255, 255, 0.05);
-            border-left: 3px solid #E65DFE;
-            padding: 1rem 1.25rem;
-            margin: 1.25rem 0;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .highlight-box p {
-            margin-bottom: 0;
-        }
-
-        footer {
-            padding: 2rem;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s ease;
-        }
-
-        .footer-links a:hover {
-            color: #FFFFFF;
-        }
-
-        .footer-links .separator {
-            color: rgba(255, 255, 255, 0.3);
-        }
-
-        .copyright {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.85rem;
-        }
-
-        @media (max-width: 768px) {
-            header {
-                padding: 1rem 1.5rem;
-            }
-
-            main {
-                padding: 2rem 1.5rem;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            .content h2 {
-                font-size: 1.35rem;
-            }
-
-            .content h3 {
-                font-size: 1.1rem;
-            }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 0.75rem;
-            }
-
-            .footer-links .separator {
-                display: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            main {
-                padding: 1.5rem 1rem;
-            }
-
-            h1 {
-                font-size: 1.75rem;
-            }
-
-            .highlight-box {
-                padding: 0.875rem 1rem;
-            }
-        }
-    </style>
+    <!-- Styles (shared with the homepage) -->
+    <link rel="stylesheet" href="assets/css/site.css">
+    <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-    <header>
-        <a href="index.html" class="logo-link">
-            <img src="assets/logo.png" alt="Focus Battery" class="logo">
-            <span class="logo-text">Focus Battery</span>
-        </a>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></symbol>
+        </defs>
+    </svg>
+
+    <header class="nav" id="nav">
+        <div class="wrap nav-inner">
+            <a href="index.html" class="brand" aria-label="Focus Battery — home">
+                <img src="assets/logo.png" alt="" width="32" height="32">
+                <span>Focus Battery</span>
+            </a>
+            <nav aria-label="Main">
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html#how-it-works">How it works</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#insights">Insights</a></li>
+                    <li><a href="index.html#privacy">Privacy</a></li>
+                </ul>
+            </nav>
+            <div class="nav-cta">
+                <a class="btn-store sm" href="https://apps.apple.com/us/app/focus-battery/id6755793734" target="_blank" rel="noopener noreferrer" aria-label="Download Focus Battery on the App Store">
+                    <svg aria-hidden="true"><use href="#i-apple"/></svg>
+                    <span class="s-text">Download</span>
+                </a>
+                <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <h1>Terms of Use</h1>
-        <p class="last-updated"><strong>Last updated:</strong> January 2025</p>
+    <main id="main">
+        <section class="page-hero">
+            <div class="wrap">
+                <p class="eyebrow">Legal</p>
+                <h1>Terms of Use</h1>
+                <p class="meta"><strong>Last updated:</strong> January 2025</p>
+            </div>
+        </section>
+
+        <div class="wrap doc-layout">
+            <aside class="doc-toc" aria-label="On this page">
+                <p>On this page</p>
+                <ol></ol>
+            </aside>
+            <article class="doc">
 
         <p class="intro">These Terms of Use ("Terms") govern your use of the Focus Battery app ("App").</p>
         <p class="intro">By using the App, you agree to these Terms.</p>
@@ -359,17 +181,30 @@
             <p>If you have questions about these Terms, contact us at:</p>
             <p><a href="mailto:info.focus.battery@gmail.com"><strong>info.focus.battery@gmail.com</strong></a></p>
         </div>
+            </article>
+        </div>
     </main>
 
-    <footer>
-        <nav class="footer-links">
-            <a href="terms.html">Terms of Service</a>
-            <span class="separator">•</span>
-            <a href="privacy.html">Privacy Policy</a>
-            <span class="separator">•</span>
-            <a href="contact.html">Contact Us</a>
-        </nav>
-        <p class="copyright">&copy; 2025 Focus Battery. All rights reserved.</p>
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footer-top">
+                <a href="index.html" class="brand"><img src="assets/logo.png" alt="" width="32" height="32"><span>Focus Battery</span></a>
+                <nav aria-label="Footer">
+                    <ul class="footer-links">
+                        <li><a href="https://apps.apple.com/us/app/focus-battery/id6755793734" target="_blank" rel="noopener noreferrer">App Store</a></li>
+                        <li><a href="privacy.html">Privacy</a></li>
+                        <li><a href="terms.html">Terms</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Focus Battery</span>
+                <span>Designed &amp; built by Alex Demchenko</span>
+            </div>
+        </div>
     </footer>
+
+    <script src="assets/js/site.js" defer></script>
 </body>
 </html>
